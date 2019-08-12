@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:randomapp/mocks/mock_teams.dart';
-import 'package:randomapp/models/teams.dart';
-import 'package:randomapp/team_detail.dart';
+import 'package:randomapp/teams_list.dart';
+import 'teams_list.dart';
 
 void main() {
-  final Teams mockteams = MockTeams.FetchAny();
+  final mockteams = MockTeams.fetchAll();
 
-  return runApp(MaterialApp(home: TeamDetail(mockteams)));
+  return runApp(MaterialApp(home: TeamsList(mockteams)));
 }
