@@ -1,4 +1,4 @@
-# randomapp
+# SoccerTeams App (randomapp flutter project)
 
 A new Flutter project.
 
