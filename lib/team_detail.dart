@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:randomapp/styles.dart';
 import 'models/teams.dart';
 
 class TeamDetail extends StatelessWidget {
@@ -27,7 +28,7 @@ class TeamDetail extends StatelessWidget {
       child: Text(
         title,
         textAlign: TextAlign.left,
-        style: TextStyle(color: Colors.black87, fontSize: 25.0),
+        style: Styles.headerLarge,
       ),
     );
   }
@@ -35,7 +36,11 @@ class TeamDetail extends StatelessWidget {
   Widget _sectionText(String text) {
     return Container(
       padding: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
-      child: Text(text),
+      child: Text(
+        text,
+        textAlign: TextAlign.left,
+        style: Styles.textDefault,
+      ),
     );
   }
 
