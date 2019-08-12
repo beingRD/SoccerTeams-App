@@ -18,13 +18,7 @@ class TeamsList extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: this.teams.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            contentPadding: EdgeInsets.all(10.0),
-            leading: _itemThumbnail(this.teams[index]),
-            title: _itemTitle(this.teams[index]),
-          );
-        },
+        itemBuilder: _listViewItemBuilder,
       ),
     );
   }
@@ -40,11 +34,11 @@ class TeamsList extends StatelessWidget {
     return Text('${teams.name}', style: Styles.textDefault);
   }
 
-  Widget _navigateToTeamDetail(BuildContext context, Teams teams) {
+  Widget _navigateToTeamDetail(BuildContext context, int teamId) {
     Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => TeamDetail(teams),
+          builder: (context) => TeamDetail(teamId),
         ));
   }
 
@@ -54,7 +48,7 @@ class TeamsList extends StatelessWidget {
       contentPadding: EdgeInsets.all(10.0),
       leading: _itemThumbnail(teams),
       title: _itemTitle(teams),
-      onTap: () => _navigateToTeamDetail(context, teams),
+      onTap: () => _navigateToTeamDetail(context, index),
     );
   }
 }

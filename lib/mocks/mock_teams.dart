@@ -60,4 +60,8 @@ class MockTeams extends Teams {
   static List<Teams> fetchAll() {
     return MockTeams.items;
   }
+
+  static Teams fetch(int index){
+    return MockTeams.items[index];
+  }
 }

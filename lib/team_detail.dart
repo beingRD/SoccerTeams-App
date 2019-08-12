@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:randomapp/mocks/mock_teams.dart';
 import 'package:randomapp/styles.dart';
 import 'models/teams.dart';
 
 class TeamDetail extends StatelessWidget {
-  final Teams teams;
+  final int teamId;
 
-  TeamDetail(this.teams);
+  TeamDetail(this.teamId);
 
   Widget build(BuildContext context) {
+    var teams = MockTeams.fetch(this.teamId);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -53,16 +55,16 @@ class TeamDetail extends StatelessWidget {
 
   List<Widget> _renderBody(BuildContext context, Teams team) {
     var result = List<Widget>();
-    result.add(_bannerImage(teams.url, 170.0));
-    result.addAll(_renderFacts(context, teams));
+    result.add(_bannerImage(team.url, 170.0));
+    result.addAll(_renderFacts(context, team));
     return result;
   }
 
   List<Widget> _renderFacts(BuildContext context, Teams team) {
     var result = List<Widget>();
-    for (int i = 0; i < teams.facts.length; i++) {
-      result.add(_sectionTitle(teams.facts[i].title));
-      result.add(_sectionText(teams.facts[i].text));
+    for (int i = 0; i < team.facts.length; i++) {
+      result.add(_sectionTitle(team.facts[i].title));
+      result.add(_sectionText(team.facts[i].text));
     }
     return result;
   }
