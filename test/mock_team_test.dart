@@ -17,6 +17,6 @@ void main() {
   test('test fetch', () {
     final mockTeams = MockTeams.fetch(0);
     expect(mockTeams, isNotNull);
-    expect(mockTeams, isNotEmpty);
+    expect(mockTeams.name, isNotEmpty);
   });
 }
