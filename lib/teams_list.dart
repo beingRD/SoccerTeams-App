@@ -14,7 +14,9 @@ class TeamsList extends StatelessWidget {
         title: Text(
           "Teams",
           style: Styles.navBarTitle,
+          
         ),
+        backgroundColor: Color(0xFF000080),
       ),
       body: ListView.builder(
         itemCount: this.teams.length,
@@ -34,7 +36,7 @@ class TeamsList extends StatelessWidget {
     return Text('${teams.name}', style: Styles.textDefault);
   }
 
-  Widget _navigateToTeamDetail(BuildContext context, int teamId) {
+  void _navigateToTeamDetail(BuildContext context, int teamId) {
     Navigator.push(
         context,
         MaterialPageRoute(
