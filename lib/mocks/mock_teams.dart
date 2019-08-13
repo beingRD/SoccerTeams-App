@@ -14,16 +14,6 @@ class MockTeams extends Teams {
                 'Covers over 111 years of the football from the club based in Turin, Italy (established in 1897) that would eventually become the most successful team in the history of Italian football and amongst the elite football clubs of the world. Iuventūs is Latin for "youth".',
           ),
           TeamFacts(
-            title: 'History',
-            text:
-                'Covers over 111 years of the football from the club based in Turin, Italy (established in 1897) that would eventually become the most successful team in the history of Italian football and amongst the elite football clubs of the world. Iuventūs is Latin for "youth".',
-          ),
-          TeamFacts(
-            title: 'History',
-            text:
-                'Covers over 111 years of the football from the club based in Turin, Italy (established in 1897) that would eventually become the most successful team in the history of Italian football and amongst the elite football clubs of the world. Iuventūs is Latin for "youth".',
-          ),
-          TeamFacts(
             title: 'Key Players',
             text:
                 'Cristiano Ronaldo,\nPjanic,\nDybala,\nDe Ligt,\nBuffon,\nChilleni.',
@@ -31,8 +21,7 @@ class MockTeams extends Teams {
         ]),
     Teams(
         name: 'Mancester City',
-        url:
-            'https://pbs.twimg.com/media/EBnjb0gXYAAZVUp.jpg',
+        url: 'https://pbs.twimg.com/media/EBnjb0gXYAAZVUp.jpg',
         facts: <TeamFacts>[
           TeamFacts(
             title: 'History',
@@ -60,7 +49,7 @@ class MockTeams extends Teams {
             text:
                 'Sadio Mane,\nMo Salah,\nRoberto Firmino,\nVan Dijk,\nAllison,\nHenderson.',
           ),
-        ]),        
+        ]),
   ];
 
   static Teams fetchAny() {
@@ -71,7 +60,7 @@ class MockTeams extends Teams {
     return MockTeams.items;
   }
 
-  static Teams fetch(int index){
+  static Teams fetch(int index) {
     return MockTeams.items[index];
   }
 }
