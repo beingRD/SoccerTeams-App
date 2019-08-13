@@ -14,7 +14,6 @@ class TeamsList extends StatelessWidget {
         title: Text(
           "Teams",
           style: Styles.navBarTitle,
-          
         ),
         backgroundColor: Color(0xFF000080),
       ),
@@ -26,9 +25,15 @@ class TeamsList extends StatelessWidget {
   }
 
   Widget _itemThumbnail(Teams teams) {
+    Image image;
+    try {
+      image = Image.network(teams.url, fit: BoxFit.fitWidth);
+    } catch (e) {
+      print('could not load image ${teams.url}');
+    }
     return Container(
       constraints: BoxConstraints.tightFor(width: 100.0),
-      child: Image.network(teams.url, fit: BoxFit.fitWidth),
+      child: image,
     );
   }
 
