@@ -16,10 +16,12 @@ class TeamDetail extends StatelessWidget {
         title: Text(teams.name),
         backgroundColor: const Color(0xff000080),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: _renderBody(context, teams),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: _renderBody(context, teams),
+        ),
       ),
     );
   }
@@ -47,9 +49,16 @@ class TeamDetail extends StatelessWidget {
   }
 
   Widget _bannerImage(String url, double height) {
+    Image image;
+
+    try {
+      image = Image.network(url, fit: BoxFit.fitWidth);
+    } catch (e) {
+      print("could not load the image $url");
+    }
     return Container(
       constraints: BoxConstraints.tightFor(height: height),
-      child: Image.network(url, fit: BoxFit.fitWidth),
+      child: image,
     );
   }
 
