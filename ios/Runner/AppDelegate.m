@@ -1,13 +1,5 @@
 #include "AppDelegate.h"
 #include "GeneratedPluginRegistrant.h"
-#import "EncryptionsPlugin.h"
-#import "Runner-Swift.h"
-
-@implementation EncryptionsPlugin
-+ (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-    [SwiftEncryptionsPlugin registerWithRegistrar:registrar];
-}
-@end
 
 @implementation AppDelegate
 
