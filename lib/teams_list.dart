@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:randomapp/team_detail.dart';
 import 'models/teams.dart';
+
 import 'styles.dart';
 
-class TeamsList extends StatelessWidget {
-  final List<Teams> teams;
-  TeamsList(this.teams);
+class TeamsList extends StatefulWidget {
+  @override
+  createState() => _TeamsListState();
+}
+
+class _TeamsListState extends State<TeamsList> {
+  List<Teams> teams = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +33,15 @@ class TeamsList extends StatelessWidget {
         itemBuilder: _listViewItemBuilder,
       ),
     );
+  }
+
+  loadData() async {
+    final teams = await Teams.fetchAll();
+    if (this.mounted) {
+      setState(() {
+        this.teams = teams;
+      });
+    }
   }
 
   Widget _itemThumbnail(Teams teams) {

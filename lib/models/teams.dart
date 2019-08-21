@@ -15,6 +15,12 @@ class Teams {
   final List<TeamFacts> facts;
   Teams({this.id, this.name, this.url, this.facts});
 
+  Teams.blank()
+      : id = 0,
+        name = '',
+        url = '',
+        facts = [];
+
   factory Teams.fromJson(Map<String, dynamic> json) => _$TeamsFromJson(json);
 
   static Future<List<Teams>> fetchAll() async {
@@ -41,5 +47,9 @@ class Teams {
 
     final Map<String, dynamic> itemMap = json.decode(resp.body);
     return Teams.fromJson(itemMap);
+  }
+
+  static Future<Teams> fetchAny() async {
+    return Teams.fetchByID(1);
   }
 }

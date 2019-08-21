@@ -3,13 +3,29 @@ import 'package:randomapp/mocks/mock_teams.dart';
 import 'package:randomapp/styles.dart';
 import 'models/teams.dart';
 
-class TeamDetail extends StatelessWidget {
+class TeamDetail extends StatefulWidget {
   final int teamId;
 
   TeamDetail(this.teamId);
 
+  @override
+  createState() => _TeamDetailState(this.teamId);
+}
+
+class _TeamDetailState extends State<TeamDetail> {
+  final int teamId;
+  Teams teams = Teams.blank();
+
+  _TeamDetailState(this.teamId);
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var teams = MockTeams.fetch(this.teamId);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -35,6 +51,16 @@ class TeamDetail extends StatelessWidget {
         style: Styles.headerLarge,
       ),
     );
+  }
+
+  loadData() async {
+    final teams = await Teams.fetchByID(this.teamId);
+
+    if (mounted) {
+      setState(() {
+        this.teams = teams;
+      });
+    }
   }
 
   Widget _sectionText(String text) {
