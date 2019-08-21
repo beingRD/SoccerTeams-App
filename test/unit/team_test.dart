@@ -25,12 +25,12 @@ void main() {
     for (var team in teams) {
       expect(team.name, hasLength(greaterThan(0)));
       expect(team.url, hasLength(greaterThan(0)));
-      //expect(team.facts, hasLength(greaterThan(0)));
+      expect(team.facts, hasLength(greaterThan(0)));
 
       final fetchedTeam = await Teams.fetchByID(team.id);
       expect(fetchedTeam.name, equals(team.name));
       expect(fetchedTeam.url, equals(team.url));
-      //expect(fetchedTeam.facts, equals(team.facts));
+      expect(fetchedTeam.facts, equals(team.facts));
     }
   });
 }
