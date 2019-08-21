@@ -12,6 +12,7 @@ class Endpoint{
       path: '$prefix$path',
       queryParameters: queryParameters,
     );
+    print('${uri.toString()}');
     return uri;
   }
 }

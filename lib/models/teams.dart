@@ -27,7 +27,9 @@ class Teams {
     var uri = Endpoint.uri('/db');
     final resp = await http.get(uri.toString());
 
-    if (resp.statusCode != 200) throw (resp.body);
+    if (resp.statusCode != 200) {
+      throw (resp.body);
+    }
 
     List<Teams> list = List<Teams>();
     for (var jsonItem in json.decode(resp.body)) {
