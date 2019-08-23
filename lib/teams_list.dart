@@ -11,6 +11,7 @@ class TeamsList extends StatefulWidget {
 
 class _TeamsListState extends State<TeamsList> {
   List<Teams> teams = [];
+  bool loading = false;
 
   @override
   void initState() {
@@ -77,5 +78,14 @@ class _TeamsListState extends State<TeamsList> {
       title: _itemTitle(teams),
       onTap: () => _navigateToTeamDetail(context, index),
     );
+  }
+
+  Widget renderProgressBar(BuildContext context) {
+    return (this.loading
+        ? LinearProgressIndicator(
+            value: null,
+            backgroundColor: Colors.white,
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.grey))
+        : Container());
   }
 }
