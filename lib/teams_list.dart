@@ -22,18 +22,21 @@ class _TeamsListState extends State<TeamsList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Teams",
-          style: Styles.navBarTitle,
+        appBar: AppBar(
+          title: Text(
+            "Teams",
+            style: Styles.navBarTitle,
+          ),
+          backgroundColor: Color(0xFF000080),
         ),
-        backgroundColor: Color(0xFF000080),
-      ),
-      body: ListView.builder(
-        itemCount: this.teams.length,
-        itemBuilder: _listViewItemBuilder,
-      ),
-    );
+        body: Column(
+          children: [
+            renderProgressBar(context),
+            Expanded(
+              child: renderListView(context),
+            )
+          ],
+        ));
   }
 
   loadData() async {
@@ -87,5 +90,12 @@ class _TeamsListState extends State<TeamsList> {
             backgroundColor: Colors.white,
             valueColor: AlwaysStoppedAnimation<Color>(Colors.grey))
         : Container());
+  }
+
+  Widget renderListView(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: _listViewItemBuilder,
+      itemCount: this.teams.length,
+    );
   }
 }

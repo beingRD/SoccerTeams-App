@@ -10,7 +10,7 @@ Teams _$TeamsFromJson(Map<String, dynamic> json) {
   return Teams(
     id: json['id'] as int,
     name: json['name'] as String,
-    url: json['url'] as String,
+    url: json['url'] as String, 
     facts: (json['facts'] as List)
         ?.map((e) =>
             e == null ? null : TeamFacts.fromJson(e as Map<String, dynamic>))
