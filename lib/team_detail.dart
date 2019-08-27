@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:randomapp/mocks/mock_teams.dart';
 import 'package:randomapp/styles.dart';
 import 'models/teams.dart';
 
